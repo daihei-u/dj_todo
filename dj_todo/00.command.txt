@@ -1,0 +1,37 @@
+python manage.py runserver
+
+django-admin startproject dj_todo
+
+
+
+
+DB操作------------------------------
+  model->table作成
+  python manage.py makemigrations todo
+  python manage.py migrate
+  管理ID作成
+  python manage.py createsuperuser
+
+PythonからのDB操作
+確認シェルの起動
+  # python manage.py shell
+ライブラリーのインポート
+  >> from todo.models import Category,Tag,Status,Todo,Confidentioal
+型の確認
+  >> Category
+インスタンスの作成
+  >> Category.objects.create(name="備忘録")
+値の取得
+  >> cat=Category.objects.first()
+  >> cat.name
+  >> st1=Status.objects.create(name="Plannning")
+DBに保存
+  >> Todo.save()
+
+
+
+
+SQL--------------------------------
+  sudo -u postgres psql todo1
+
+  CREATE DATABASE todo1;
