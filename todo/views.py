@@ -18,12 +18,13 @@ class Detail(DetailView):
 class Create(CreateView):
     model = Todo
     # 編集対象にするフィールド
-    fields = ["title", "body", "category", "confidentioal", "status", "tags"]
+    fields = ["title", "body", "category", "confidentioal", "status", "tags","freetags"]
+    #fields = ["type","title", "body", "confident", "stage", "tags","freetags"]
 
 
 class Update(UpdateView):
     model = Todo
-    fields = ["title", "body", "category", "confidentioal", "status", "tags"]
+    fields = ["title", "body", "category", "confidentioal", "status", "tags","freetags"]
 
 
 class Delete(DeleteView):

@@ -1,0 +1,17 @@
+{% extends "todo/base.html" %}
+{% load l10n %}
+{% block main %}
+<dev class="detail">
+<h2 class="det_title">{{ object.title }}</h2>
+
+<div class="det_body">
+    {{ object.body }}
+</div>
+<div class="det_conf">{{ object.confidentioal }}</div>
+<div class="det_status">{{ object.status }}</div>
+<div class="det_tags">{{ object.get_tags_list }}</div>
+<p class="det_time"><time>{{ object.updated|localize }}</time></p>
+<a href="{% url 'update' object.pk %}"><p class="btn btn-primary btn-lg">編集</p></a>
+<a href="{% url 'delete' object.pk %}"><p class="btn btn-primary btn-lg">削除</p></a>
+</dev>
+{% endblock %}

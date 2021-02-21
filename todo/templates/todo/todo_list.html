@@ -1,10 +1,56 @@
 {% extends "todo/base.html" %}
+{% load static%}
 {% block main %}
-<h2>Todo一覧</h2>
-<ol>
+<div class="row">
+<div class="col-md-3">
+<div >Regular work</div>
     {% for todo in object_list %}
-    <li><a href="{% url 'detail' todo.id %}">{{ todo.title }}</a></li>
+    {% if todo.is_regularwork %}
+    <div class="form-group">
+    <div class="custom-control custom-checkbox list_item_regularwork">
+    <input type="checkbox" class="custom-control-input" id="rw{{ todo.id }}"">
+    <label class="custom-control-label  list_title_regularwork" for="rw{{ todo.id }}">
+      <a href="{% url 'detail' todo.id %}">{{ todo.title }}</a>
+    </label>
+    </div>
+    </div>
+    {% endif %}
     {% endfor %}
-</ol>
-<p><a href="{% url 'create' %}">新規Todo</a></p>
+</div>
+<div class="col-md-6">
+<div>Mission</div>
+<div class="flexbox">
+    {% for todo in object_list %}
+    {% if todo.is_mission %}
+    <div class="item list_item_mission">
+    <img src="{% static "todo/postit.jpeg"%}"/>
+    <div class="title list_title_mission"><a href="{% url 'detail' todo.id %}">{{ todo.title }}</a></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+<div class="item list_item_mission">
+<img src="{% static "todo/postits.jpeg"%}"/>
+<p class="title list_title_mission"><a href="{% url 'create' %}">新規Todo</a></p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="sidebar_content">ToDo</div>
+<div class="flexbox">
+    {% for todo in object_list %}
+    {% if todo.is_todo %}
+    <div class="item list_item_todo">
+    <img src="{% static "todo/postitSS.jpeg"%}"/>
+    <div class="title list_title_todo"><a href="{% url 'detail' todo.id %}">{{ todo.title }}</a></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p><a href="{% static "todo/test.html"%}">test site</a>
+</div>
+</div>
 {% endblock %}

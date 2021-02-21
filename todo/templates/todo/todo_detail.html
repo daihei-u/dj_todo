@@ -1,14 +1,34 @@
 {% extends "todo/base.html" %}
 {% load l10n %}
+{% load static%}
 {% block main %}
-<h2>{{ object.title }}</h2>
-<p><time>{{ object.updated|localize }}</time></p>
-<div>
+<div class="row">
+<div class="col-md-12">
+<dev class="detail">
+<h2 class="det_title">{{ object.title }}</h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="det_body">
     {{ object.body }}
 </div>
-<div>{{ object.confidentioal }}</div>
-<div>{{ object.status }}</div>
-<div>{{ object.tags }}</div>
-<p><a href="{% url 'update' object.pk %}">編集</a></p>
-<p><a href="{% url 'delete' object.pk %}">削除</a></p>
+<div class="det_conf">{{ object.confidentioal }}</div>
+<div class="det_status">{{ object.status }}</div>
+<p class="det_time"><time>{{ object.updated|localize }}</time></p>
+<a href="{% url 'update' object.pk %}"><p class="btn btn-primary btn-lg">編集</p></a>
+<a href="{% url 'delete' object.pk %}"><p class="btn btn-primary btn-lg">削除</p></a>
+</dev>
+</div>
+<div class="col-md-6">
+  <div>tags</div>
+  <div class="flexbox">
+  {% for tag in object.get_tags_list %}
+  <div class="item list_item_mission">
+  <img src="{% static "todo/postit.jpeg"%}"/>
+  <div class="title list_title_mission"><a href="{% url 'detail' tag.id %}">{{ tag.title }}</a></div>
+  </div>
+  {% endfor %}
+</div>
+</div>
 {% endblock %}

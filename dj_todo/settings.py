@@ -25,18 +25,22 @@ SECRET_KEY = '0@q1!_5lgwn=(*g3f66o^bz#+1_z38&!251eqc4)sp&g^#u!(n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = ["192.168.0.38"]
 ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "registration",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "sslserver",
+    "anymail",
     "todo",
 ]
 
@@ -130,3 +134,32 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+#MEDIA_URL= "/image/"
+#MEDIA_ROOT=BASE_DIR
+
+#for test
+## EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/login/"
+
+# 暗号化されたhttpsを使うようにする
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+AUTH_USER_MODEL='registration.User'
+
+
+from .private import siteinfo
+'''
+ANYMAIL = {
+    "MAILGUN_API_KEY": "**************************************************",
+    "MAILGUN_SENDER_DOMAIN": '***************************************.mailgun.org',
+}
+EMAIL_BACKEND = "********.********.******.*********"
+DEFAULT_FROM_EMAIL = "******"@gmail.com"
+SERVER_EMAIL = "*******@gmail.com"
+'''

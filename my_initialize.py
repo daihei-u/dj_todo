@@ -1,5 +1,6 @@
 
 from todo.models import Category,Tag,Status,Todo,Confidentioal
+from registration.models import User
 Category.objects.create(name="Todo")
 Category.objects.create(name="Mission")
 Category.objects.create(name="Regular work")

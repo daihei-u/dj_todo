@@ -1,0 +1,130 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, "Hiragino Kaku Gothic Pro W3", Meiryo, sans-serif;
+  background-color: #fff;
+  color: #111;
+  text-align: left;
+}
+body a,
+body a:visited {
+  color: #000;
+  text-decoration: none;
+}
+body p {
+  margin: 0;
+}
+
+._col_white{
+  color:white;
+}
+
+.flexbox {
+  display: -webkit-flex;
+  display: Flex;
+  -webkit-flex-direction: column;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: auto;
+  width: auto;
+}
+.flexbox:hover img {
+  opacity: 1;
+}
+.flexbox .item {
+  position: relative;
+  /*
+  width: 200px;
+  height:200px;
+  */
+}
+.flexbox .item img {
+  width: 100%;
+  display: block;
+  transition: all 1s;
+  opacity: 0.6;
+}
+.flexbox .item .title {
+  position: absolute;
+  word-wrap: break-word;
+  overflow:hidden;
+  top: 0%;
+  left: 0;
+  /*
+  width: 200px;
+  height: 180px;
+  padding: 20%;
+  font-size: 20px;
+  ext-shadow: 0 0 8px rgba(0, 0, 0, 0.42);
+  */
+}
+.flexbox .item:hover img {
+  opacity: 1;
+}
+.detail{
+  widht: 50vw;
+  height: 80vh;
+  position: relative;
+}
+.det_body{
+  position: relative;
+  word-wrap: break-word;
+  overflow:scroll;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  padding: 0 0 0 0;
+  margin: 10px 10px 10px 10px;
+  font-size: 13px;
+
+}
+.list_item_todo{
+  width: 300px;
+  height: 70px;
+}
+.list_item_mission{
+  width: 200px;
+  height: 200px;
+}
+.list_item_regularwork{
+  word-wrap: break-word;
+  overflow:hidden;
+  top: 0%;
+  left: 0;
+  width: 300px;
+  height: 40px;
+}
+.list_title_todo{
+  width: 300px;
+  height: 70px;
+  padding: 5%;
+  font-size: 18px;
+}
+.list_title_mission{
+  width: 200px;
+  height: 180px;
+  padding: 20%;
+  font-size: 20px;
+}
+.list_title_regularwork{
+  /*position: absolute;*/
+  word-wrap: break-word;
+  overflow:hidden;
+  top: 0;
+  left: 10;
+  width: 300px;
+  height: 30px;
+  padding: 0;
+  font-size: 20px;
+}
+.text_small{
+  font-size: 12px;
+}
+.sidebar_content{
+  width: 300px;
+}

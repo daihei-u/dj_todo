@@ -11,3 +11,6 @@ urlpatterns = [
     path('update/<pk>', views.Update.as_view(), name="update"),
     path('delete/<pk>', views.Delete.as_view(), name="delete"),
 ]
+
+
+#+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

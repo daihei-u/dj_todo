@@ -1,0 +1,70 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, "Hiragino Kaku Gothic Pro W3", Meiryo, sans-serif;
+  background-color: #fff;
+  color: #111;
+  text-align: center;
+}
+body a,
+body a:visited {
+  color: #000;
+  text-decoration: none;
+}
+body p {
+  margin: 0;
+}
+
+.flexbox {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.flexbox:hover img {
+  opacity: 1;
+}
+.flexbox .item {
+  position: relative;
+  width: 200px;
+}
+.flexbox .item img {
+  width: 100%;
+  display: block;
+  transition: all 1s;
+}
+.flexbox .item .title {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  padding: 0 15%;
+  font-size: 20px;
+  //ext-shadow: 0 0 8px rgba(0, 0, 0, 0.42);
+}
+.flexbox .item:hover img {
+  opacity: 1;
+}
+
+@media (max-width: 860px) {
+  .flexbox {
+    height: 220vw;
+  }
+  .flexbox .item {
+    width: 50%;
+  }
+}
+@media (max-width: 667px) {
+  .flexbox {
+    height: auto;
+  }
+  .flexbox .item {
+    width: 100%;
+  }
+}

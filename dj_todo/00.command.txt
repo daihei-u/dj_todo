@@ -2,8 +2,22 @@ python manage.py runserver
 
 django-admin startproject dj_todo
 
-
-
+再作成
+# sudo -u postgresql psql
+> \l
+> DROP DATABASE todo1;
+> CREATE DATABASE todo1;
+> \q
+# python manage.py makemigrations todo
+# python manage.py makemigrations registration
+# python manage.py migrate
+# python manage.py createsuperuser
+todoadmin
+T0d0@dmin
+# python manage.py shell
+> from todo.models import Category,Tag,Status,Todo,Confidentioal
+> from registration.models import User
+#
 
 DB操作------------------------------
   model->table作成

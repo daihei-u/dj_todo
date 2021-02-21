@@ -1,0 +1,21 @@
+{% extends "todo/base.html" %}
+{% load static%}
+{% block main %}
+<h2>Todo一覧</h2>
+<div class="flexbox">
+    {% for todo in object_list %}
+    <div class="item">
+    <img src="{% static "todo/postit.jpeg"%}"/>
+    <p class="title"><a href="{% url 'detail' todo.id %}">{{ todo.title }}</a></p>
+    </div>
+    {% endfor %}
+    <div class="item">
+    <!--
+    <img src="{% static "todo/postit.jpeg"%}"/>
+    -->
+    <img src="https://unsplash.it/600/400?random" />
+    <p><a href="{% url 'create' %}">新規Todo</a></p>
+    </div>
+</div>
+<p><a href="{% url 'create' %}">新規Todo</a></p>
+{% endblock %}

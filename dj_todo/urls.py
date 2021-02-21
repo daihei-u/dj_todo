@@ -15,8 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.auth.models import User
+from django.contrib.auth.models import Group
+from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
+from registration import views
+
+
+admin.site.site_title="MyTodo Admin site"
+admin.site.site_heaader="MyTodo Admin site"
+admin.site.index_title="Menu"
+admin.site.register(User)
+#admin.site.unregister(Group)
+
+
+index_view = TemplateView.as_view(template_name="registration/index.html")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("todo.urls")),
+    path("", login_required(index_view), name="index"),
+    path('', include("django.contrib.auth.urls")),
+    path("account/", login_required(index_view), name="index"),
+    path("signup/", views.SignUpView.as_view(), name="signup"),
 ]

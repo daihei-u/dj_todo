@@ -1,0 +1,30 @@
+{% extends "todo/base.html" %}
+
+{% block main %}
+
+
+<h2>新規Todo</h2>
+<form method="post">
+  {% csrf_token %}
+  <div class="fieldWrapper">
+    {{ form.title.errors}}
+    <label for="id_title">Title</label>
+    {{ form.title}}
+  </div>
+  <div class="fieldWrapper">
+    {{ form.body.errors}}
+    {{ form.body}}
+  </div>
+  <div class="fieldWrapper">
+    {{ form.confident.errors}}
+    <label for="id_confident">confidential level</label>
+    {{ form.confident }}
+  </div>
+  <div class="fieldWrapper">
+    {{ form.stage.errors}}
+    <label for="id_stage">stage</label>
+    {{ form.stage }}
+  </div>
+    <input type="submit" value="追加" class="btn btn-primary" />
+</form>
+{% endblock %}
